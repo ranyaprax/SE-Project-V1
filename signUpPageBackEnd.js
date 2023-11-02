@@ -10,14 +10,12 @@ app.use(express.urlencoded({ extended: true })); // Parse URL-encoded data
 app.post('/submit-data', (req, res) => {
     const { data } = req.body;
     
-    // Validate the data (add your validation logic here)
+    // Validate the data 
     if (!data) {
       return res.status(400).json({ error: 'Data is required' });
     }
   
-    // Save the data to the database (add your database interaction logic here)
-    // For example, using a hypothetical database module:
-    // database.saveData(data)
+    // Save the data to the database
   
     res.status(201).json({ message: 'Data saved successfully' });
 });
