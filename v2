@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="signUpPageBackEnd.js"></script>
+</head>
+
+<form>
+<!--
+Name
+Surname
+Email
+Password
+age above 16
+Purpose (education, work, personal...)
+user name - has to be unique
+-->
+<label for="fname">First name:</label><br>
+<input type="text" id="fname"><br>
+<label for="lname">Last name:</label><br>
+<input type ="text" id="lname"><br>
+<label for="email">Email:</label><br>
+<input type ="text" id="email"><br>
+<label for="password">Password:</label><br>
+<input type="text" id="password"><br>
+<label for="username">Username:</label><br>
+<input type="text" id="username"><br>
+<label for="age">age:</label><br>
+<input type="text" id="age"><br>
+
+<label for="purpose">Purpose:</label><br>
+<input type="radio" id="personal">Personal<br> 
+<input type="radio" id="work">Work<br> 
+<input type="radio" id="education">Education<br> 
+<br>
+<input type="submit" id="submit" onclick="getInfo();">
+</form> 
+
+  
+</body>
+
+</html>
