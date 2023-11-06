@@ -1,0 +1,51 @@
+<!-- HTML Code for each Thread -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="thread.css" />
+    <meta charset="UTF-8">
+    <title>Thread Page</title>
+</head>
+<body>
+    <!-- Site Topbar -->
+    <div class="topbar">
+        <h1>Fire Ferrets</h1>
+    </div>
+
+    <div id="app" class="main">
+        <!-- Title of Thread -->
+        <h1 class="title">
+            {{ thread.title }}
+        </h1>
+
+        <!-- Thread Information (Author, Timestamp, and Content) -->
+        <div class="bottom">
+            <p>Posted by {{thread.author}}</p>
+            <p class="timestamp"> {{ new Date(thread.timestamp).toLocaleString() }} </p>
+        </div>
+        <p class="content"> {{ thread.content }} </p>
+
+        <!-- Comment Section (Comment Count, each with Author, Timestamp, and Content) -->
+        <div class="comment-section">
+            <h2 class="comment-count"> Comments ({{ thread.comments.length }}) </h2>
+            <!-- Unordered List displays each Comment -->
+            <ul>
+                <li v-for="comment in thread.comments">
+                    <div class="commentTop">
+                        By {{ comment.author }} - {{ new Date(comment.timestamp).toLocaleString() }}
+                    </div>
+                    <div class="commentBottom">
+                        {{ comment.content }}
+                    </div>
+                </li>
+            </ul>
+            <!-- "Add Comment" Function -->
+            <textarea v-model="newComment" placeholder="Add a comment"></textarea>
+            <button @click="addComment">Add Comment</button>
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="thread.js"></script>
+</body>
+</html>

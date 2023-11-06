@@ -1,0 +1,62 @@
+/* CSS Code for thread.html */
+
+html {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 10px 60px;
+}
+
+p, ol {
+    margin: 5px 0;
+}
+
+h1 {
+    margin: 0;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+li {
+    list-style-type: none;
+    margin: 15px -40px;
+}
+
+textarea {
+    width: 80%;
+    height: 80px;
+}
+
+button {
+    display: block;
+    margin: 10px 0;
+}
+
+.title {
+    font-size: 25px;
+    margin: 0 0;
+}
+
+.main {
+    background-color: #F6F6EF;
+    padding: 10px 15px;
+}
+
+.topbar {
+    background-color: skyblue;
+    padding: 0 40px;
+}
+
+.bottom {
+    color: grey;
+    font-size: 12px;
+}
+
+.commentTop {
+    display: block;
+    color: grey;
+    font-size: 12px;
+}
