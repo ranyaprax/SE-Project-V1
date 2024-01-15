@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="SignUp.css">
+</head>
+<body>
+
+<div class="login" id="loginPage" style="display:contents;">
+    <div>
+        <h2>Login</h2>
+        <form action="#">
+            <div>
+                <span><ion-icon name="mail-outline"></ion-icon></span><!--icon-->
+                <input type="text" required id="email">
+                <label>Email</label>
+                <div id="result"></div>
+            </div>
+            <div>
+                <span><ion-icon name="lock-closed-outline"></ion-icon></span><!--icon-->
+                <input type="text" id="password">
+                <label>Password</label>
+            </div>
+            <div>
+                <label><input type="checkbox">Remember me</label>
+                <a href="">Forgot Password?</a>
+            </div>
+            <button type="button" onclick="">Login</button>
+            <div>
+                <p>Don't have an account? <a href="signUp.html">Sign up!</a></p>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="signUpPageBackEnd.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</html>
