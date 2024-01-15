@@ -61,12 +61,6 @@
                <span></span>
 
             </div>
-            <div>
-               <label>Purpose</label>
-               <input type="text" id="purpose">
-               <span></span>
-
-            </div>
             <button type="button" onclick="Back2();">Back</button>
             <button type="button" onclick="Create();">Create Account</button>
         </form>
