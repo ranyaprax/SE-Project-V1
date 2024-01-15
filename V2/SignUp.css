@@ -1,0 +1,57 @@
+.login {
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-top: 20%;
+    margin-bottom: 40%;
+    text-align: center;
+}
+
+.error{
+    font-size:small;
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Source Code Pro', monospace;
+    list-style: none;
+    text-decoration: none;
+}
+header{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 9%;
+    background: #a3b899;
+}
+body{
+    background: #667b68;
+}
+.logo{
+    font-size: 40px;
+    font-weight: 700px;
+    color: white;
+}
+
+.navlist{
+    display: flex;
+}
+
+.navlist a{
+    color: white;
+    margin-left: 60px;
+    font-size: 15px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all .55s ease;
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid white;
+}
