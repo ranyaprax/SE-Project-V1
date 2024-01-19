@@ -1,0 +1,188 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+header{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 9%;
+    background: white;
+}
+body{
+    background: #295f48;
+}
+.logo{
+    font-size: 30px;
+    font-weight: 700px;
+    color:  #295f48;
+}
+
+.navlist{
+    display: flex;
+    
+}
+
+.navlist a{
+    color:  #295f48;
+    margin-left: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all .55s ease;
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid #295f48;
+}
+
+#menu-icon{
+    color: white;
+    font-size: 40px; 
+    z-index: 10001; 
+    cursor: pointer;
+    display: none;
+}
+
+.firstSection{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    gap: 2rem;
+}
+
+section{
+    padding: 0 19%;
+}
+
+.sectionOneText h4{
+    font-size: 30px;
+    font-weight: 400;
+    color: white; 
+    margin-bottom: 40px;
+}
+
+.sectionOneText h1{
+    font-size: 70px;
+    line-height: 1;
+    font-weight: 400;
+    color: white; 
+    margin: 0 0 45px;
+}
+.sectionOneText p{
+    font-size: 15px;
+    line-height: 1;
+    font-weight: 400;
+    color: white; 
+    margin: 0 0 45px;
+}
+.studyImg img{
+    width: 400px; 
+    height: auto;
+}
+
+.sectionOneText a{
+    display: inline-block; 
+    color: white; 
+    background: #a6dbbc; 
+    border: 1px solid transparent; 
+    padding: 12px 30px;
+    line-height: 1.4px;
+    font-size: 14px;
+    font-weight:500; 
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease; 
+}
+
+.sectionOneText a:hover{
+    background: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.sectionOneText a.ctaa{
+    background: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.sectionOneText a.ctaa i{
+    vertical-align: middle; 
+    margin-right: 5px; 
+
+}
+
+.scrollDown{
+    position: absolute; 
+    bottom: 6%;
+    right: 9%;
+}
+
+.scrollDown i{
+    display: block; 
+    padding: 12px;
+    font-size: 25px;
+    color: white;
+    background: #a6dbbc;
+    border-radius: 30px;
+    transition: all .50s ease;
+    
+}
+
+.scrollDown i:hover{
+    transform: translateY(-5px);
+}
+
+.account-dropdown{
+    display: inline-block;
+}
+
+
+.account-dropdown button{
+    background-color: hsl(0,0%,80%);
+    color: white; 
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.account-dropdown a{
+    display: block;
+    text-decoration: none;
+    padding: 7px 10px;
+}
+
+.account-dropdown .content{
+    display: none;
+    position:  absolute;
+    background-color: hsl(0,0%,95%);
+    min-width: 100px;
+    box-shadow: 2px 2px 5px hsla(0,0%,0%,0.8);
+    
+}
+
+.account-dropdown:hover .content{
+    display: block;
+}
+
+.account-dropdown:hover button{
+    background-color: hsl(0,0%,70%);
+}
+
+.account-dropdown a:hover{
+    background-color: hsl(0,0%,90%);
+}
