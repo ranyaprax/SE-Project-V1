@@ -6,7 +6,7 @@ const threadId = parseInt(urlParams.get('id'));
 
 // Threads initalised here for testing only. 
 const threads = [
-    { id: 1, title: 'Thread 1', author: "Peter", timestamp: Date.now(), content: "Welcome to the Fire Ferrets Forum! This is a Test", comments: [{ content: "Hey Peeta", author: "Lois", timestamp: Date.now() }]},
+    { id: 1, title: 'Thread 1', author: "Peter", timestamp: Date.now(), content: "Welcome to the Fire Ferrets Forum! This is a Test", comments: [{ cId: 1, content: "Hey Peeta", author: "Lois", timestamp: Date.now() }]},
     { id: 2, title: 'Thread 2', author: "Raif Costello", timestamp: Date.now(), content: "You can create your own threads, and comment under others'!", comments: [] },
 ];
 
@@ -26,7 +26,7 @@ const app = new Vue({
         // Function to Add Comments to the Thread
         addComment() {
             if (this.newComment.trim() !== '') {
-                this.thread.comments.push({ content: this.newComment, author: "NULL", timestamp: Date.now() });
+                this.thread.comments.push({ cId: comments.length + 1, content: this.newComment, author: "NULL", timestamp: Date.now() });
                 this.newComment = '';
             }
         },
