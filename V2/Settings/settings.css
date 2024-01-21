@@ -23,7 +23,7 @@ body{
     background: #667b68;
 }
 .logo{
-    font-size: 40px;
+    font-size: 50px;
     font-weight: 700px;
     color: white;
 }
@@ -35,7 +35,7 @@ body{
 .navlist a{
     color: white;
     margin-left: 60px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 600;
     border-bottom: 2px solid transparent;
     transition: all .55s ease;
@@ -45,9 +45,8 @@ body{
     border-bottom: 2px solid white;
 }
 
-
-
-
-
-
-
+.navlistLogo {
+    width: 80px;
+    height: auto;
+    
+}
