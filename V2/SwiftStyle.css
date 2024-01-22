@@ -1,0 +1,104 @@
+header{
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 9%;
+    background: white;
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    background: #295f48;
+}
+.logo{
+    font-size: 30px;
+    font-weight: 700px;
+    color:  #295f48;
+}
+
+.top{
+    padding-top:100px;
+}
+
+.navlist{
+    display: flex;
+    
+}
+
+.navlist a{
+    color:  #295f48;
+    margin-left: 60px;
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent;
+    transition: all .55s ease;
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid #295f48;
+}
+
+#menu-icon{
+    color: white;
+    font-size: 40px; 
+    z-index: 10001; 
+    cursor: pointer;
+    display: none;
+}
+
+.scrollDown i:hover{
+    transform: translateY(-5px);
+}
+
+.account-dropdown{
+    display: inline-block;
+}
+
+
+.account-dropdown button{
+    background-color: hsl(0,0%,80%);
+    color: white; 
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+}
+
+.account-dropdown a{
+    display: block;
+    text-decoration: none;
+    padding: 7px 10px;
+}
+
+.account-dropdown .content{
+    display: none;
+    position:  absolute;
+    background-color: hsl(0,0%,95%);
+    min-width: 100px;
+    box-shadow: 2px 2px 5px hsla(0,0%,0%,0.8);
+    
+}
+
+.account-dropdown:hover .content{
+    display: block;
+}
+
+.account-dropdown:hover button{
+    background-color: hsl(0,0%,70%);
+}
+
+.account-dropdown a:hover{
+    background-color: hsl(0,0%,90%);
+}
