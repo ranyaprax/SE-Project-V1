@@ -1,38 +1,56 @@
-<!-- HTML Code for Thread List -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="stylesheet" type="text/css" href="forum.css" />
-    <meta charset="UTF-8">
-    <title>The Forum!!</title>
+    <title> Study Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <!--Custom Css link-->
+    <link rel="stylesheet" type="text/css" href="forum.css">
+
+    <!--Boxicons link-->
+    <link rel="stylesheet"
+          href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- remixicons link-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Font Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
 </head>
-<body>
-    <!-- Site Topbar -->
-    <div class="topbar">
-        <h1>Fire Ferrets</h1>
-    </div>
-
-    <div id="app" class="main">
-
-        <input id="newTitle" type="text" v-model="newTitle" placeholder="Thread Title" />
-        <textarea id="newContent" v-model="newContent" placeholder="Type your new Thread here"></textarea>
-        <button @click="addThread">Add Thread</button>
-
-        <!-- Unordered List displays each Thread -->
-        <ul>
-            <li v-for="thread in threads">
-                <a :href="'thread.html?id=' + thread.id">
-                    <h4 class="title"> {{ thread.title }} </h4>
-                    <div class="bottom">
-                        <p class="author"> Posted by {{ thread.author }} </p>
-                        <p class="timestamp"> On {{ new Date(thread.timestamp).toLocaleString() }} </p>
-                        <p class="comment_count"> Comments: {{ thread.comments.length }} </p>
+    <body>
+        <!-- Site Topbar -->
+        <header>
+            <a href="#" class="logo">Study Website</a>
+            <ul class="navlist">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Timer/Tasks</a></li>
+                <li><a href="#">Forum</a></li>
+                <li class="account-dropdown">
+                    <a href="#">Account</a>
+                    <div class="content">
+                        <a href="#">Account Details</a>
+                        <a href="#">Log out</a>
                     </div>
-                </a>
-            </li>
-        </ul>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-    <script src="forum.js"></script>
-</body>
+                </li>
+            </ul>
+            <div class="bx bx-menu" id="menu-icon"></div>
+        </header>
+
+        <div class="firstSection">
+
+            <input id="newTitle" type="text" placeholder="Thread Title" />
+            <textarea id="newContent" placeholder="Type your new Thread here"></textarea>
+            <button id="addThreadButton">Add Thread</button>
+
+            <!-- Unordered List displays each Thread -->
+            <ul id="threadList">
+                <!-- Each Thread will be added here dynamically from forum.js -->
+            </ul>
+        </div>
+        <script src="forum.js"></script>
+    </body>
 </html>
