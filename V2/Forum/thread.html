@@ -1,51 +1,64 @@
-<!-- HTML Code for each Thread -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="thread.css" />
-    <meta charset="UTF-8">
-    <title>Thread Page</title>
+    <title> Study Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width = device-width, initial-scale = 1">
+
+    <!--Custom Css link-->
+    <link rel="stylesheet" type="text/css" href="thread.css">
+
+    <!--Boxicons link-->
+    <link rel="stylesheet"
+          href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- remixicons link-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Font Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Site Topbar -->
-    <div class="topbar">
-        <h1>Fire Ferrets</h1>
-    </div>
+    <header>
+        <a href="#" class="logo">Study Website</a>
+        <ul class="navlist">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Timer/Tasks</a></li>
+            <li><a href="#">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="#">Account</a>
+                <div class="content">
+                    <a href="#">Account Details</a>
+                    <a href="#">Log out</a>
+                </div>
+            </li>
+        </ul>
+        <div class="bx bx-menu" id="menu-icon"></div>
+    </header>
 
-    <div id="app" class="main">
-        <!-- Title of Thread -->
-        <h1 class="title">
-            {{ thread.title }}
-        </h1>
-
-        <!-- Thread Information (Author, Timestamp, and Content) -->
-        <div class="bottom">
-            <p>Posted by {{thread.author}}</p>
-            <p class="timestamp"> {{ new Date(thread.timestamp).toLocaleString() }} </p>
+    <!-- Thread Content -->
+    <div class="firstSection">
+        <div class="content">
+            <h1 class="title" id="threadTitle"> </h1>
+            <div class="bottom" id="threadStats"> </div>
+            <p class="content" id="threadContent"> </p>
         </div>
-        <p class="content"> {{ thread.content }} </p>
 
         <!-- Comment Section (Comment Count, each with Author, Timestamp, and Content) -->
         <div class="comment-section">
-            <h2 class="comment-count"> Comments ({{ thread.comments.length }}) </h2>
+            <h2 class="comment-count" id="commentCount"> Comments (0) </h2>
             <!-- Unordered List displays each Comment -->
-            <ul>
-                <li v-for="comment in thread.comments">
-                    <div class="commentTop">
-                        By {{ comment.author }} - {{ new Date(comment.timestamp).toLocaleString() }}
-                    </div>
-                    <div class="commentBottom">
-                        {{ comment.content }}
-                    </div>
-                </li>
+            <ul id="commentList">
+                <!-- Comments will be dynamically added here -->
             </ul>
             <!-- "Add Comment" Function -->
-            <textarea v-model="newComment" placeholder="Add a comment"></textarea>
-            <button @click="addComment">Add Comment</button>
+            <textarea id="newComment" placeholder="Add a comment"></textarea>
+            <button id="addCommentButton">Add Comment</button>
         </div>
-
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
     <script src="thread.js"></script>
 </body>
 </html>
