@@ -59,13 +59,17 @@ body {
 
 .firstSection {
     height: 100%;
-    width: 100%;
+    width: 50%;
     min-height: 100vh;
     position: relative;
     display: flex;
     flex-direction: column;
     top: 110px;
-    padding: 10px;
+    margin-left: 10px;
+}
+
+.content {
+    color: white;
 }
 
 section {
@@ -189,9 +193,10 @@ section {
         background-color: hsl(0,0%,90%);
     }
 
-/* Additonal CSS for dorum.html */
+/* Additonal CSS for thread.html */
 ul {
     background: white;
+    margin: 5px;
 }
 
 li {
@@ -200,8 +205,29 @@ li {
     margin-bottom: 10px;
 }
 
-input, textarea, button {
-    width: 50%;
+.content {
+    background: #204C39;
+    padding: 5px;
+    margin-top: 10px;
+}
+
+.comment-section {
+    background: #204C39;
+    margin-top: 10px;
+}
+
+.comment-count {
+    color: white;
+}
+
+#threadContent {
+    background: white;
+    color: black;
+    width: 100%;
+}
+
+textarea, button {
+    width: 98%;
     margin: 5px;
     padding: 5px;
 }
