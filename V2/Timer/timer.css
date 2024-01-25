@@ -1,0 +1,20 @@
+.timer {
+    font-size: 100px;
+    margin-top: 200px; 
+    text-align: center;
+    color:white;
+}
+
+.buttonContainer {
+    /* text-align: center;
+    align-items: center;
+    margin-top: 30px;
+    justify-content: center; */
+
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
