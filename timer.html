@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Personal Homepage</title>
+
+    <!-- char encoding standard -->
+    <meta charset = "utf-8"> 
+    <meta name="description" content="Settings page for Swift, accessible through landing page">
+    <meta name=author content="Ashlyn Buckley">
+
+    <!--Stylesheet-->
+    <link rel = "stylesheet" type = "text/css" href = "timer.css">
+    <link rel = "stylesheet" type = "text/css" href = "SwiftStyle.css">
+
+    <!-- Font link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet">
+
+    <script src = "C:\Users\ashly\Downloads\2BCT\Software Eng\Swift\swiftJs\timer.js"></script>
+</head>
+<body>
+    <header>
+        <a href = "landingPage.html" class = "logo">Swift</a>
+        <ul class = "navlist">
+            <li><a href = "timer.html">Timer</a></li>
+            <li><a href = "#">Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="SignUp.html">Account</a>
+                <div class="content">
+                    <a href="SettingsPagev5.html">Account Details</a>
+                    <a href="#">Log out</a>
+                </div>
+            </li>
+        </ul>
+    
+        <div class="bx bx-menu" id = "menu-icon"></div> 
+
+    </header>
+    <div id="timer" class="timer">00:00:00</div>
+    <div class="buttonContainer">
+    <button id="startBn" class="button" onclick="start()">START</button>
+    <button id="pauseBn" onclick="stop()">PAUSE</button>
+    <button id="resetBn" onclick="set()">RESET</button>
+    </div>
+</body>
+</html>

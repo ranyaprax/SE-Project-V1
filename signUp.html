@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="SignUp.css">
+    <link rel="stylesheet" href="SwiftStyle.css">
+
+    <!--Boxicons link-->
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- remixicons link-->
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Font Link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <a href = "landingPage.html" class = "logo">Swift</a>
+        <ul class = "navlist">
+            <li><a href = "timer.html">Timer</a></li>
+            <li><a href = "#">Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="SignUp.html">Account</a>
+                <div class="content">
+                    <a href="SettingsPagev5.html">Account Details</a>
+                    <a href="#">Log out</a>
+                </div>
+            </li>
+        </ul>
+    
+        <div class="bx bx-menu" id = "menu-icon"></div> 
+
+    </header>
+
+    <section class="login" id="Page1">
+        <h2>Sign up</h2>
+        <div>
+            <label>First Name</label>
+            <input type="text" id="fname">
+            <span>
+                <ion-icon name="accessibility-outline"></ion-icon>
+            </span>
+        </div>
+        <div>
+            <label>Last Name</label>
+            <input type="text" id="lname">
+            <span>
+                <ion-icon name="body-outline"></ion-icon>
+            </span>
+        </div>
+        <p>Already have an account? <a href="Login.html">Log in!</a></p>
+
+        <button type="button" onclick="Next1();">Next</button>
+    </section>
+
+    <section class="login" id="Page2">
+        <h2>Sign up</h2>
+        <div>
+            <label>Email Address</label>
+            <input type="text" id="email">
+            <span>
+                <ion-icon name="mail-outline"></ion-icon>
+            </span>
+            <div id="resEmail" class="error"></div>
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="text" id="password">
+            <span>
+                <ion-icon name="lock-closed-outline"></ion-icon>
+            </span>
+            <div id="resPwd" class="error"></div>
+        </div>
+        <br>
+        <button type="button" onclick="Back1();">Back</button>
+        <button type="button" onclick="Next2();">Next</button>
+    </section>
+
+    <section class="login" id="Page3">
+        <h2>Sign up</h2>
+        <div>
+            <label>Username </label>
+            <input type="text" id="username">
+            <span></span>
+        </div>
+        <div>
+            <label>Age</label>
+            <br>
+            <input type="text" id="age">
+            <span></span>
+        </div>
+        <br>
+        <button type="button" onclick="Back2();">Back</button>
+        <button type="button" onclick="Create();">Create Account</button>
+    </section>
+
+
+</body>
+<script src="signUpPageBackEnd.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</html>

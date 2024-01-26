@@ -1,0 +1,17 @@
+.login{
+    margin: 200px 0 0 35%;
+    width:  200px;
+    padding: 30px 40px 30px 40px;
+    border: 10px #475344 groove;
+    background-color:#ccc;
+}
+
+#Page1 {
+    display:block;
+}
+#Page2 {
+    display:none;
+}
+#Page3 {
+    display:none;
+}

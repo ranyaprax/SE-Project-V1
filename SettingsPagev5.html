@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<!-- 
+    So settings page has:
+    - the same static header as LP
+
+    TAB 1
+    - change email
+    - change password
+    - change age
+    - account deletion
+
+    TAB 2
+    - change full name 
+    - change pfp
+    - two main tabs
+    - two buttons: reset and save
+ -->
+<head>
+    <title> Study Website</title>
+    <!-- char encoding standard -->
+    <meta charset = "utf-8"> 
+    <meta name="description" content="Settings page for Swift, accessible through landing page">
+    <meta name=author content="Ashlyn Buckley">
+
+     <!--Stylesheet-->
+
+    <link rel = "stylesheet" type = "text/css" href = "settings.css">
+    <link rel = "stylesheet" type = "text/css" href = "SwiftStyle.css">
+    <!--Boxicons link--> 
+    <link rel = "stylesheet"
+    href = "https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+<!-- remixicons link--> 
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<!-- Font Link--> 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    
+
+ 
+</head>
+
+<body>
+    <!-- Static header that will remain at the top even if you scroll down -->
+    <header>
+        <a href = "landingPage.html" class = "logo">Swift</a>
+        <ul class = "navlist">
+            <li><a href = "timer.html">Timer</a></li>
+            <li><a href = "#">Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="SignUp.html">Account</a>
+                <div class="content">
+                    <a href="SettingsPagev5.html">Account Details</a>
+                    <a href="#">Log out</a>
+                </div>
+            </li>
+        </ul>
+    
+        <div class="bx bx-menu" id = "menu-icon"></div> 
+
+    </header>
+    <section class="content">
+    
+        <div class="sidebar">
+            <ul>
+                <li><h1 class="heading">Settings</h1></li> <!-- static -->
+                <li><button id="profileButton" onclick="loadTab('profile')">Edit Profile</button></li> 
+                <li><button id="accountButton" onclick="loadTab('account')">Manage Account</button></li>
+            </ul>
+        </div>
+        
+        <!-- Tab contents -->
+        <div class="tab">
+    
+                <!-- Edit Profile -->
+                <div id='profile' class="tabContent active">
+                    <h3>Edit Profile</h3>
+    
+                    <div>
+                    <img src="images/book.png" id="pfp" style="border: 4px solid #2a632f; margin-top: 70px; width: 100px ">
+                    
+                    <!-- first and last name input boxes -->
+                    <form style="margin-top: 30px">
+                                
+                        <label for="fname" style="font-size: 20px;">First name</label>
+                        <label for="lname" style="font-size: 20px;">Last name</label><br>
+                        <input type="text" id="fname" name="fname">
+                        <input type="text" id="lname" name="lname"><br>
+                    </form>
+    
+                    <!-- Discard and commit changes buttons - no code for this currently -->
+                    <button>Discard Changes</button>
+                    <button>Commit Changes</button>
+                    </div>
+    
+                </div>
+    
+                <!-- Manage Account -->
+                <div id='account' class="tabContent">
+                    <h3>Manage Account</h3>
+                    <label for="userEmail" style="font-size: 20px;">Email</label><br>
+                    <input type="email" id="userEmail"><br>
+    
+                    <label for="password" style="font-size: 20px;">Password</label><br>
+                    <input type="password" id="password">
+                    <button onclick="changePassword()">Change</button><br>
+    
+                    <label for="dob" style="font-size: 20px;">Age</label><br>
+                    <input type="date" id="dob"><br><br>
+                    <button id="deleteButton" style="width: 150px; height: 50px; font-size: 15px; background-color: red; color: white;" onclick="attemptDeletion()">Delete Account</button>
+                </div>
+        </div>
+
+    </section>
+
+    
+</body>
+<!-- Js link --> 
+<script src = "setscript.js" defer></script> 
+</html>
