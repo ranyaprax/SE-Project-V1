@@ -1,51 +1,103 @@
-// JS Code for thread.html
+// Initialize Firebase app and Firestore
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
+import { getFirestore, doc, getDoc, updateDoc } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 
-// Get the ID of the Thread from the URL.
-const urlParams = new URLSearchParams(window.location.search);
-const threadId = parseInt(urlParams.get('id'));
+// Firebase Configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyB-OH2gdRbWTC3R1wyGQBEgSaprQVKARdQ",
+    authDomain: "ct216app-22318961.firebaseapp.com",
+    projectId: "ct216app-22318961",
+    storageBucket: "ct216app-22318961.appspot.com",
+    messagingSenderId: "549285741006",
+    appId: "1:549285741006:web:2c0e1b37522133e798ab9f"
+};
+const firebaseApp = initializeApp(firebaseConfig);
+const firestore = getFirestore(firebaseApp);
 
-// Threads initalised here for testing only. 
-const threads = [
-    { id: 1, title: 'Thread 1', author: "Peter", timestamp: Date.now(), content: "Welcome to the Fire Ferrets Forum! This is a Test", comments: [{ cId: 1, content: "Hey Peeta", author: "Lois", timestamp: Date.now() }]},
-    { id: 2, title: 'Thread 2', author: "Raif Costello", timestamp: Date.now(), content: "You can create your own threads, and comment under others'!", comments: [] },
-];
+// Function to add a new Comment.
+async function addComment() {
+    try {
+        // .trim() removes and whitespaces either side of the Comment.
+        const newComment = document.getElementById('newComment').value.trim();
 
-// Function to update the Thread's Details.
-function updateThread() {
-    // Find the correct Thread to display based on the ID found from the URL.
-    let thread = threads.find(thread => thread.id === threadId);
+        // Ensure the comment is not Empty.
+        if (newComment !== '') {
+            // Get the Thread ID from the URL.
+            const urlParams = new URLSearchParams(window.location.search);
+            const threadId = urlParams.get('id');
 
-    // Display the Thread's Title
-    document.getElementById('threadTitle').innerText = thread.title;
+            // Get Reference to the Thread Document.
+            const threadRef = doc(firestore, 'threads', threadId);
 
-    // Display the Thread's Stats (Author and Timestamp).
-    let threadStats = document.getElementById('threadStats');
-    threadStats.innerHTML = `
-        <p>Posted by ${thread.author}</p>
-        <p class="timestamp">${new Date(thread.timestamp).toLocaleString()}</p>
-    `;
+            // Fetch Thread data to get existing Comments.
+            const threadSnapshot = await getDoc(threadRef);
+            if (threadSnapshot.exists()) {
+                const threadData = threadSnapshot.data();
+                const comments = threadData.comments || [];
 
-    // Display the Thread's Content (Text).
-    let contentParagraph = document.getElementById('threadContent');
-    contentParagraph.appendChild(document.createTextNode(thread.content));
+                // Add new Comment to the Array.
+                comments.push({
+                    author: "Anonymous", // Author Data TBA
+                    content: newComment,
+                    timestamp: new Date().toISOString() // .toISOString() needed here since Firestore Arrays don't support .toLocaleString() 
+                });
 
-    // All previous Comments stored with the Thread are displayed in the Comment Section.
-    updateComments(thread.comments);
+                // Update the Thread document with the new Comments Array.
+                await updateDoc(threadRef, { comments });
+
+                // Refresh the Thread to display the updated Comments.
+                refreshThread();
+            } else {
+                console.log('Thread not found');
+            }
+
+            // Clear the Input Area.
+            document.getElementById('newComment').value = '';
+        } else {
+            console.log('Comment cannot be empty');
+        }
+    } catch (error) {
+        console.error('Error adding comment:', error);
+    }
 }
 
-// Every Comment inputted is dusplayed in the Thread's Comment Section.
+// Function to refresh the thread content
+async function refreshThread() {
+    try {
+        // Get the Thread ID from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const threadId = urlParams.get('id');
+
+        // Get the Reference for the Thread Collection
+        const threadRef = doc(firestore, 'threads', threadId);
+
+        // Read Thread Data
+        const threadSnapshot = await getDoc(threadRef);
+        if (threadSnapshot.exists()) {
+            const threadData = threadSnapshot.data();
+
+            // Display thread title, author, and content
+            document.getElementById('threadTitle').innerText = threadData.title;
+            document.getElementById('threadAuthor').innerText = `Posted by ${threadData.author}`;
+            document.getElementById('threadContent').innerText = threadData.content;
+
+            // Update comments section
+            updateComments(threadData.comments || []);
+        } else {
+            console.log('Thread not found');
+        }
+    } catch (error) {
+        console.error('Error updating Thread:', error);
+    }
+}
+
+// Function to update the Comment Section.
 function updateComments(comments) {
-    // The Comment Count is updated to reflect the new value.
-    let commentCount = document.getElementById('commentCount');
-    commentCount.innerHTML = `Comments (${comments.length})`;
-
-    // The Comment List is cleared.
-    let commentList = document.getElementById('commentList');
+    const commentList = document.getElementById('commentList');
     commentList.innerHTML = '';
-
-    // 
+    // Each Comment referencing this Thread will be displayed, in this HTML format.
     comments.forEach(comment => {
-        let li = document.createElement('li');
+        const li = document.createElement('li');
         li.innerHTML = `
             <div class="commentTop">
                 By ${comment.author} - ${new Date(comment.timestamp).toLocaleString()}
@@ -56,29 +108,13 @@ function updateComments(comments) {
         `;
         commentList.appendChild(li);
     });
+
+    // Update Comment Count.
+    document.getElementById('commentCount').innerText = `Comments (${comments.length})`;
 }
 
-// Function to add a new comment
-function addComment() {
-    let newComment = document.getElementById('newComment').value.trim();
-
-    // A Comment will only be created if there is some text in the Input Area.
-    if (newComment !== '')
-    {
-        // Find the correct Thread in the Threads Array to add the Comment to. based on the ID found from the URL
-        let thread = threads.find(thread => thread.id === threadId);
-        thread.comments.push({ cId: comments.length + 1, content: newComment, author: "NULL", timestamp: Date.now() });
-
-        // The Input Area is cleared.
-        document.getElementById('newComment').value = '';
-
-        // Update the comment section
-        updateComments(thread.comments);
-    }
-}
-
-// Event Listener checking if the "Add Comment" button is ever pressed.
+// Event listener for the "Add Comment" Button.
 document.getElementById('addCommentButton').addEventListener('click', addComment);
 
-// Initial update of the thread details
-updateThread();
+// Call refreshThread() when the page loads to have an initial Comment List. 
+refreshThread();
