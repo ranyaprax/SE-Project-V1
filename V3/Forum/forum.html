@@ -1,21 +1,19 @@
-<!-- HTML Code for Thread List -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <link rel="stylesheet" type="text/css" href="forum.css" />
-    <link rel = "stylesheet" type = "text/css" href = "SwiftStyle.css">
-
+    <link rel="stylesheet" type="text/css" href="SwiftStyle.css">
     <meta charset="UTF-8">
-    <title>The Forum!!</title>
+    <title>Swift</title>
 </head>
 <body style="margin: 10px 60px;">
     <!-- Site Topbar -->
     <header>
-        <a href = "landingPage.html" class = "logo">Swift</a>
-        <ul class = "navlist">
-            <li><a href = "timer.html">Timer</a></li>
-            <li><a href = "#">Tasks</a></li>
-            <li><a href = "forum.html">Forum</a></li>
+        <a href="landingPage.html" class="logo">Swift</a>
+        <ul class="navlist">
+            <li><a href="timer.html">Timer</a></li>
+            <li><a href="#">Tasks</a></li>
+            <li><a href="forum.html">Forum</a></li>
             <li class="account-dropdown">
                 <a href="signUp.html">Account</a>
                 <div class="content">
@@ -24,12 +22,13 @@
                 </div>
             </li>
         </ul>
-    
-        <div class="bx bx-menu" id = "menu-icon"></div> 
 
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+    <!-- This seciton allows users to create their own Threads. -->
     </header>
     <div class="firstSection top">
-
+        <h1 class="forumTitle">Learning Forum</h1>
         <input id="newTitle" type="text" placeholder="Thread Title" />
         <textarea id="newContent" placeholder="Type your new Thread here"></textarea>
         <button id="addThreadButton">Add Thread</button>
@@ -39,7 +38,25 @@
             <!-- Each Thread will be added here dynamically from forum.js -->
         </ul>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
-    <script src="forum.js"></script>
+
+    <!-- Firebase and Firestore References -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
+        import { getFirestore, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyB-OH2gdRbWTC3R1wyGQBEgSaprQVKARdQ",
+            authDomain: "ct216app-22318961.firebaseapp.com",
+            projectId: "ct216app-22318961",
+            storageBucket: "ct216app-22318961.appspot.com",
+            messagingSenderId: "549285741006",
+            appId: "1:549285741006:web:2c0e1b37522133e798ab9f"
+        };
+        const firebaseApp = initializeApp(firebaseConfig);
+        const firestore = getFirestore(firebaseApp);
+    </script>
+
+    <!-- forum.js Reference -->
+    <script type="module" src="forum.js"></script>
 </body>
 </html>
