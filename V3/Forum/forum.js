@@ -1,60 +1,77 @@
-// JS Code for forum.html
+// Initialize Firebase app and Firestore
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
+import { getFirestore, collection, addDoc, serverTimestamp, query, orderBy, getDocs } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 
-// Threads initalised here for testing only.
-let threads =
-[
-    { id: 1, title: 'Thread 1', author: "Peter", timestamp: Date.now(), content: "Welcome to the Fire Ferrets Forum! This is a Test", comments: [{ id: 1, content: "Hey Peeta", author: "Lois", timestamp: Date.now() }] },
-    { id: 2, title: 'Thread 2', author: "Raif Costello", timestamp: Date.now(), content: "You can create your own threads, and comment under others'!", comments: [] },
-];
+// Firebase Configuration 
+const firebaseConfig = {
+    apiKey: "AIzaSyB-OH2gdRbWTC3R1wyGQBEgSaprQVKARdQ",
+    authDomain: "ct216app-22318961.firebaseapp.com",
+    projectId: "ct216app-22318961",
+    storageBucket: "ct216app-22318961.appspot.com",
+    messagingSenderId: "549285741006",
+    appId: "1:549285741006:web:2c0e1b37522133e798ab9f"
+};
+const firebaseApp = initializeApp(firebaseConfig);
+const firestore = getFirestore(firebaseApp);
 
-// Function to Add Threads to the Forum.
-function addThread()
-{
-    // The new Thread's Title and Content are taken from the Inputs.
+// Function to add a new thread
+async function addThread() {
     let newTitle = document.getElementById('newTitle').value.trim();
     let newContent = document.getElementById('newContent').value.trim();
 
-    if (newTitle !== '' && newContent !== '')
-    {
-        // Add New Thread to the Threads Array.
-        threads.push({ id: threads.length + 1, title: newTitle, author: "NULL", timestamp: Date.now(), content: newContent, comments: [] });
-
-        // Clear Input Fields 
+    // If Function ensures the user cannot pass through an empty Thread.
+    if (newTitle !== '' && newContent !== '') {
+        await addDoc(collection(firestore, 'threads'), {
+            title: newTitle,
+            author: "NULL",
+            timestamp: serverTimestamp(),
+            content: newContent,
+            comments: []
+        });
+        // Clear the Text from the two Input Areas.
         document.getElementById('newTitle').value = '';
         document.getElementById('newContent').value = '';
 
-        // Update the Thread List display to include the new Thread.
         updateThreadList();
     }
 }
 
-// Function to update the Thread List.
-function updateThreadList()
-{
-    // The Thread List is cleared.
+// Function to the list of Threads
+function updateThreadList() {
     let threadList = document.getElementById('threadList');
     threadList.innerHTML = '';
 
-    // Using the below HTML template, each element in the Array of Threads is displayed.
-    threads.forEach(thread =>
-    {
-        let li = document.createElement('li');
-        li.innerHTML = `
-            <a href='thread.html?id=${thread.id}'>
-                <h4 class="title">${thread.title}</h4>
-                <div class="bottom">
-                    <p class="author">Posted by ${thread.author}</p>
-                    <p class="timestamp">On ${new Date(thread.timestamp).toLocaleString()}</p>
-                    <p class="comment_count">Comments: ${thread.comments.length}</p>
-                </div>
-            </a>
-        `;
-        threadList.appendChild(li);
-    });
+    const threadsRef = collection(firestore, 'threads');
+    const q = query(threadsRef, orderBy('timestamp', 'desc'));
+
+    getDocs(q)
+        .then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+                let thread = doc.data();
+                let li = document.createElement('li');
+                // Check if any Comments exist for this Thread.
+                let commentCount = thread.comments ? thread.comments.length : 0;
+                // Each Thread saved in the Collection will be displayed, in this HTML format.
+                li.innerHTML = `
+                    <a href='thread.html?id=${doc.id}'>
+                        <h4 class="title">${thread.title}</h4>
+                        <div class="bottom">
+                            <p class="author">Posted by ${thread.author}</p>
+                            <p class="timestamp">On ${new Date(thread.timestamp.toMillis()).toLocaleString()}</p>
+                            <p class="comment_count">Comments: ${commentCount}</p>
+                        </div>
+                    </a>
+                `;
+                threadList.appendChild(li);
+            });
+        })
+        .catch((error) => {
+            console.error('Error reading Threads: ', error);
+        });
 }
 
-// Event Listener checks for any clicks of the "Add Thread" Button.
+// Event listener for the "Add Thread" Button.
 document.getElementById('addThreadButton').addEventListener('click', addThread);
 
-// Function Called when page Loads to display all previous Threads.
+// Call updateThreadList() when the page loads to have an initial Thread List. 
 updateThreadList();
