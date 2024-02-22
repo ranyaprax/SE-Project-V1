@@ -32,7 +32,6 @@ function validateForm() {
     var password = document.getElementById("password").value
     // Check email format
     if (!validateEmail(email)) {
-        //displayErrorMessage('Invalid email format');
         console.log("Invalid email");
         return false;
     }
@@ -40,7 +39,6 @@ function validateForm() {
     // Check minimum password length
     if (!validatePassword(password)) {
         console.log("Invalid password");
-        //displayErrorMessage('Password must be at least 6 characters');
         return false;
     }
 
@@ -68,33 +66,31 @@ function Back2(){
     document.getElementById("Page3").style = "display:none;";
 }
 
-document.getElementById("test").addEventListener('click', function(event) {
+document.getElementById("signup").addEventListener('click', function(event) {
     // event.preventDefault();
-    let fname = document.getElementById("fname").value;
-    let lname = document.getElementById("lname").value;
+    let firstName = document.getElementById("fname").value;
+    let lastName = document.getElementById("lname").value;
     
-    // let email = document.getElementById("email").value;
-    // let password = document.getElementById("password").value;
+    let email = document.getElementById("email").value;
+    let password = document.getElementById("password").value;
 
-    // let username = document.getElementById("username").value;
-    // let age = document.getElementById("age").value;
-    // // console.log(fname);
-    // ,email,password,username,age
-    signup(fname,lname);
+    let userName = document.getElementById("username").value;
+    let age = document.getElementById("age").value;
+    
+    signup(firstName,lastName,email,password,userName,age);
 })
 
-function signup(fname,lname){ 
+function signup(firstName,lastName,email,password,userName,age){ 
     const data = {//object
-        'first name':fname,
-        'last name':lname,
+        'first name':firstName,
+        'last name':lastName,
         'email':email,
         'password':password,
-        'username':username,
+        'username':userName,
         'age':age
     }; 
-    // console.log(data);
-    // const testdata = {'title': 'test'};
-    fetch('https://dummyjson.com/products/add', {//npmserve
+    
+    fetch('http://127.0.0.1:5001/ct216app-22318961/us-central1/signup', {//npmserve
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -104,14 +100,9 @@ function signup(fname,lname){
     .then(response => response.json())
     .then(d => {
         console.log(d);
-        // if(d.success){
         const jwToken = d.token;
         localStorage.setItem('jwToken',jwToken);
-        // console.log(jwToken);
-        // }
-        // else{
-        //     alert('Login failed', d.message);
-        // }
+       
     })
     .catch(error => {
         console.error('Error Signing in', error);
