@@ -25,30 +25,26 @@
 
     </header>
 
-<section class="login" id="loginPage" style="display:contents;">
+<section class="login" id="loginPage" style="width:250px;">
         <h2>Login</h2>
-            <div class="division">
-                <span><ion-icon name="mail-outline"></ion-icon></span><!--icon-->
+            <div>
+                <label>Email &nbsp &nbsp &nbsp</label>
                 <input type="text" required id="email">
-                <label>Email</label>
+                <span><ion-icon name="mail-outline"></ion-icon></span><!--icon-->
                 <div id="result"></div>
             </div>
-            <div class="division">
-                <span><ion-icon name="lock-closed-outline"></ion-icon></span><!--icon-->
+            <div >
+                <label>Password </label>
                 <input type="text" id="password">
-                <label>Password</label>
+                <span><ion-icon name="lock-closed-outline"></ion-icon></span><!--icon-->
             </div>
-            <div class="division">
-                <label><input type="checkbox">Remember me</label>
-                <a href="">Forgot Password?</a>
-            </div>
-            <button type="button" onclick="">Login</button>
+            <button type="button" id="login">Login</button>
             
             <p>Don't have an account? <a href="signUp.html">Sign up!</a></p>
 </section>
 
 </body>
-<script src="signUpPageBackEnd.js"></script>
+<script src="login.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 
