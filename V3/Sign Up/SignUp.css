@@ -2,9 +2,11 @@
     margin: 200px 0 0 35%;
     width:  200px;
     padding: 30px 40px 30px 40px;
-    border: 10px #475344 groove;
+    border: 10px #144A33 solid;
+    border-radius: 15px;
     background-color:#ccc;
 }
+a:visited{color:#144A33;}
 
 #Page1 {
     display:block;
