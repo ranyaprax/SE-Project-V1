@@ -1,20 +1,90 @@
+/*timer*/
 .timer {
     font-size: 100px;
     margin-top: 200px; 
     text-align: center;
-    color:white;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+}
+
+.time h3 {
+    margin: 0;
+}
+
+.colon {
+    font-size: 100px;
+    margin: 0 10px;
 }
 
 .buttonContainer {
-    /* text-align: center;
-    align-items: center;
-    margin-top: 30px;
-    justify-content: center; */
-
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+}
+
+/*modal*/
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    padding: 20px;
+    background: #fff;
+    z-index: 1;
+    width: 60%; /* Adjust the width as needed */
+    max-width: 600px; /* Set a maximum width if desired */
+    height: 170px;
+  }
+  
+  .modalContent {
+    max-width: 100%;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .close {
+    float: right;
+    cursor: pointer;
+  }
+
+  .timer {
+    font-size: 100px;
+    margin-top: 200px; 
+    text-align: center;
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+.time {
+    display: flex;
+    align-items: center;
+}
+
+.time h3 {
+    margin: 0;
+}
+
+.colon {
+    font-size: 100px;
+    margin: 0 10px;
+}
+
+.buttonContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
