@@ -1,40 +1,101 @@
- //fields
- var seconds = 0;
- var mins = 0;
- var hrs = 0;
- var state = false; //used to pause timer
- var timer;
+var isRunning = false;
+var isBreak = false;
+var numBreaks = 0;
+var breakLength = 0;
+var numSessions = 0;
+var sessionLength = 0;
+var timeInSeconds = 0; 
+var completedSessions = 0; //counter for completed sessions
+var intervalId;
 
- //fns
- function start() {
-     //fn that makes timer go
-    while (seconds != 0 && mins != 0 && hrs != 0 && state == true) {
-         //timer goes down
-         //from set time to 0
+// timerSettings is the modal
+function openModal() {
+    document.getElementById('timerSettings').style.display = 'block';
+}
+
+function closeModal() {
+    document.getElementById('timerSettings').style.display = 'none';
+}
+
+function loadTimer() {
+    // retrieve selected values
+    sessionLength = parseInt(document.getElementById('sessionLength').value);
+    numSessions = parseInt(document.getElementById('numSessions').value);
+
+    // last break doesn't count because you'll have finished all study portions of sessions**
+    numBreaks = numSessions;
+
+    // calculate how long each break is, it is proportionate to the length of time of each study portion
+    // for every 25 mins you get 5 min break at the end
+    var breakAllotments = sessionLength % 5;
+    breakLength = breakAllotments * 5;
+
+    timeInSeconds = sessionLength * 60; // decrementing per second
+
+    // display
+    updateTimerDisplay();
+    closeModal();
+}
+
+function startTimer() {
+    if (!isRunning) {
+        isRunning = true;
+        intervalId = setInterval(runTimer, 1000); // update every 1000ms (1 second)
     }
- }
+}
 
- function checkNum() {
-     if (isNaN(input) || input == "") {
-         //don't allow
-         alert("That's not a number...");
-     }
-     else {
-         state = true;
-         //start
-     }
- }
+function runTimer() {
+    if (timeInSeconds > 0) {
+        // if not over, decrement
+        timeInSeconds--;
+        updateTimerDisplay();
+    } else {
+        // if the timer reaches 0, start a break or a new session
+        if (!isBreak) {
+          completedSessions++;
+          //adding a limit
+          if (completedSessions != numSessions) {
+            startSession();
+          }
+        } else {
+            startBreak();
+        }
+    }
+}
 
- function stop() {
-     state = false;
- }
+function stopTimer() {
+    isRunning = false;
+    clearInterval(intervalId);
+}
 
- function set() {
-     //fn that will start the timer from the specified amount
-     var input = document.getElementById("timer").value;
-     //if (secinput % 60 == 0) { mins++; }
-     //if (mininput % 60 == 0) { hours++; }
+function startSession() {
+    isBreak = false;
+    timeInSeconds = sessionLength * 60;
+    updateTimerDisplay();
+}
 
-     //display sec, min, hours
+function startBreak() {
+    isBreak = true;
+    timeInSeconds = breakLength * 60;
+    updateTimerDisplay();
+    playAlert();
+}
 
- }
+function updateTimerDisplay() {
+    const hours = Math.floor(timeInSeconds / 3600);
+    const minutes = Math.floor((timeInSeconds % 3600) / 60);
+    const seconds = timeInSeconds % 60;
+
+    document.getElementById('hours').innerText = padZero(hours);
+    document.getElementById('minutes').innerText = padZero(minutes);
+    document.getElementById('seconds').innerText = padZero(seconds);
+}
+
+function padZero(num) {
+    return num < 10 ? '0' + num : num;
+}
+
+function playAlert() {
+  var audio = document.getElementById("breakTimeAudio");
+  audio.play();
+}
