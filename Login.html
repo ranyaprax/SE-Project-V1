@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="SignUp.css">
+    <link rel="stylesheet" href="SwiftStyle.css">
+</head>
+<body>
+    <header>
+        <a href = "landingPage.html" class = "logo">Swift</a>
+        <ul class = "navlist">
+            <li><a href = "timer.html">Timer</a></li>
+            <li><a href = "#">Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="SignUp.html">Account</a>
+                <div class="content">
+                    <a href="SettingsPagev5.html">Account Details</a>
+                    <a href="#">Log out</a>
+                </div>
+            </li>
+        </ul>
+    
+        <div class="bx bx-menu" id = "menu-icon"></div> 
+
+    </header>
+
+<section class="login" id="loginPage" style="width:250px;">
+        <h2>Login</h2>
+            <div>
+                <label>Email &nbsp &nbsp &nbsp</label>
+                <input type="text" required id="email">
+                <span><ion-icon name="mail-outline"></ion-icon></span><!--icon-->
+                <div id="result"></div>
+            </div>
+            <div >
+                <label>Password </label>
+                <input type="text" id="password">
+                <span><ion-icon name="lock-closed-outline"></ion-icon></span><!--icon-->
+            </div>
+            <button type="button" id="login">Login</button>
+            
+            <p>Don't have an account? <a href="signUp.html">Sign up!</a></p>
+</section>
+
+</body>
+<script src="login.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</html>
