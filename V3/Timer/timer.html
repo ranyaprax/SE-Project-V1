@@ -1,50 +1,105 @@
 
-<!DOCTYPE html>
-<html>
-<head>
+    <!DOCTYPE html>
+    <html>
+    <head>
 
-    <title>Personal Homepage</title>
+        <title>Username | Swift</title>
 
-    <!-- char encoding standard -->
-    <meta charset = "utf-8"> 
-    <meta name="description" content="Settings page for Swift, accessible through landing page">
-    <meta name=author content="Ashlyn Buckley">
+        <!-- char encoding standard -->
+        <meta charset = "utf-8"> 
+        <meta name="description" content="Settings page for Swift, accessible through landing page">
+        <meta name=author content="Ashlyn Buckley">
 
-    <!--Stylesheet-->
-    <link rel = "stylesheet" type = "text/css" href = "timer.css">
-    <link rel = "stylesheet" type = "text/css" href = "SwiftStyle.css">
+        <!-- Favicon -->
+        <link rel="icon" href="/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 
-    <!-- Font link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet">
 
-    <script src = "C:\Users\ashly\Downloads\2BCT\Software Eng\Swift\swiftJs\timer.js"></script>
-</head>
-<body>
-    <header>
-        <a href = "landingPage.html" class = "logo">Swift</a>
-        <ul class = "navlist">
-            <li><a href = "timer.html">Timer</a></li>
-            <li><a href = "#">Tasks</a></li>
-            <li><a href = "forum.html">Forum</a></li>
-            <li class="account-dropdown">
-                <a href="SignUp.html">Account</a>
-                <div class="content">
-                    <a href="SettingsPagev5.html">Account Details</a>
-                    <a href="#">Log out</a>
-                </div>
-            </li>
-        </ul>
-    
-        <div class="bx bx-menu" id = "menu-icon"></div> 
+        <!--Stylesheet-->
+        <link rel = "stylesheet" type = "text/css" href = "newTimer.css">
+        <link rel = "stylesheet" type = "text/css" href = "newStyle.css">
 
-    </header>
-    <div id="timer" class="timer">00:00:00</div>
-    <div class="buttonContainer">
-    <button id="startBn" class="button" onclick="start()">START</button>
-    <button id="pauseBn" onclick="stop()">PAUSE</button>
-    <button id="resetBn" onclick="set()">RESET</button>
-    </div>
-</body>
-</html>
+        <!-- Font link -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@700&display=swap" rel="stylesheet">
+
+        <!-- Alert sound -->
+        <audio id="breakTimeAudio">
+            <source src="C:\Users\ashly\Downloads\2BCT\Software Eng\Swift\fart.mp3" type="audio/mp3">
+        </audio>
+
+        <script src="C:\Users\ashly\Downloads\2BCT\Software Eng\Swift\swiftJs\timer.js"></script>
+
+    </head>
+    <body>
+        <header>
+            <a href = "landingPage.html" class = "logo">Swift</a>
+            <ul class = "navlist">
+                <li><a href = "timer.html">Timer</a></li>
+                <li><a href = "#">Tasks</a></li>
+                <li><a href = "forum.html">Forum</a></li>
+                <li class="account-dropdown">
+                    <a href="SignUp.html">Account</a>
+                    <div class="content">
+                        <a href="SettingsPagev5.html">Account Details</a>
+                        <a href="#">Log out</a>
+                    </div>
+                </li>
+            </ul>
+        
+            <div class="bx bx-menu" id = "menu-icon"></div> 
+
+        </header>
+        
+        <!-- timer -->
+        <div id="timer" class="timer">
+            <div class="time" >
+                <h3 id="hours">00</h3>
+                <h3>:</h3>
+            </div>
+            <div class="time">
+                <h3 id="minutes">00</h3>
+                <h3>:</h3>
+            </div>
+            <div class="time">
+                <h3 id="seconds">00</h3>
+            </div>
+        </div>
+
+        <!-- buttons -->
+        <div class="buttonContainer">
+            <button id="editBn" class="button" onclick="openModal()">EDIT</button>
+            <button id="starteBn" onclick="startTimer()">START</button>
+            <button id="pauseBn" onclick="stopTimer()">PAUSE</button>
+        </div>
+
+        <!-- modal -->
+        <div id="timerSettings" class="modal">
+            <div class="modalContent">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <!-- Add your input fields here -->
+            <label for="sessionLength">How long will each session be?<br></label>
+            <select id="sessionLength">
+                <option value="5">5min</option>
+                <option value="25">25min</option>
+                <option value="50">50min</option>
+                <option value="75">75min</option>
+                <option value="100">100min</option>
+                <option value="125">125min</option>
+                <option value="150">150min</option>
+            </select><br><br>
+            <label for="numSessions">How many sessions?<br></label>
+            <select id="numSessions">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+            </select><br><br>
+            <button onclick="loadTimer()">Let's Study!</button>
+            </div>
+        </div>
+    </body>
+    </html>
