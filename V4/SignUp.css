@@ -6,6 +6,15 @@
     border-radius: 15px;
     background-color:#ccc;
 }
+
+.done{
+    margin: 200px 0 0 35%;
+    width:  250px;
+    padding: 30px 40px 30px 40px;
+    border: 10px #144A33 solid;
+    border-radius: 18px;
+    background-color:#ccc;
+}
 a:visited{color:#144A33;}
 
 #Page1 {
@@ -15,5 +24,8 @@ a:visited{color:#144A33;}
     display:none;
 }
 #Page3 {
+    display:none;
+}
+#done {
     display:none;
 }
