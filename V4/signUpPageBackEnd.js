@@ -1,3 +1,4 @@
+
 //checks if the email is valid
 function validateEmail(email){
     //check if there is an @ sign and "."
@@ -15,7 +16,7 @@ function validateEmail(email){
 
 function validatePassword(password){
     
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])(?=.*\d)[A-Za-z\d@$!%*?&]{8,20}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[@$!%*?&])(?=.*\d)[A-Za-z\d@$!%*?&]{6,20}$/;
     if(passwordRegex.test(password)){
         return true;
     }
@@ -67,6 +68,8 @@ function Back2(){
 }
 
 document.getElementById("signup").addEventListener('click', function(event) {
+    loggedin();
+    
     // event.preventDefault();
     let firstName = document.getElementById("fname").value;
     let lastName = document.getElementById("lname").value;
@@ -77,10 +80,10 @@ document.getElementById("signup").addEventListener('click', function(event) {
     let userName = document.getElementById("username").value;
     let age = document.getElementById("age").value;
     
-    signup(firstName,lastName,email,password,userName,age);
+    signUp(firstName,lastName,email,password,userName,age);
 })
 
-function signup(firstName,lastName,email,password,userName,age){ 
+function signUp(firstName,lastName,email,password,userName,age){ 
     const data = {//object
         'first name':firstName,
         'last name':lastName,
@@ -90,7 +93,7 @@ function signup(firstName,lastName,email,password,userName,age){
         'age':age
     }; 
     
-    fetch('http://127.0.0.1:5001/ct216app-22318961/us-central1/signup', {//npmserve
+    fetch('https://dummyjson.com/products/add', {//npmserve   'http://127.0.0.1:5001/ct216app-22318961/us-central1/signup'
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -102,9 +105,23 @@ function signup(firstName,lastName,email,password,userName,age){
         console.log(d);
         const jwToken = d.token;
         localStorage.setItem('jwToken',jwToken);
-       
+        localStorage.setItem("SwiftUserSignedIn", true);
+        document.getElementById("done").style = "display:block;";
+        document.getElementById("Page3").style = "display:none;";
     })
     .catch(error => {
-        console.error('Error Signing in', error);
+        console.log('Error Signing in');
     });
 }
+
+function loggedin(){
+    if(localStorage.getItem("SwiftUserSignedIn") === 'true'){
+        document.getElementById("temp").innerHTML = "Log Out";
+        document.getElementById("temp").href = "logOut.html";
+    }
+    else {
+        document.getElementById("temp").innerHTML = "Sign Up";
+        document.getElementById("temp").href = "signUp.html";
+    }
+}
+window.onload = loggedin;
