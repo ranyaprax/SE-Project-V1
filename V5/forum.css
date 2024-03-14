@@ -1,0 +1,35 @@
+/* Additonal CSS for forum.html */
+.forum ul {
+    background: white;
+}
+
+#createForum {
+    top: 100px;
+    position:absolute;
+    padding: 10px;
+    width: 500px;
+}
+
+.forum li {
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#newTitle, #addThreadButton {
+    margin: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+#newContent {
+    margin: 5px;
+    padding: 5px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+}
+
+.forumTitle {
+    color: white;
+}

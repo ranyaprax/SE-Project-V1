@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="thread.css">
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <title>Thread name | Swift</title>
+
+     <!-- Favicon -->
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href="landingPage.html" class="logo">Swift</a>
+        <ul class = "navlist">
+            <li><a href = "personal.html">Timer/Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="signUp.html">Account</a>
+                <div class="content">
+                    <a href="settings.html">Account Details</a>
+                    <a href="login.html">Log out</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+    </header>
+
+    <!-- Thread Content -->
+    <div class="firstSection top">
+        <div class="content">
+            <h1 class="title" id="threadTitle"> </h1>
+            <p class="author" id="threadAuthor"></p>
+            <p class="timestamp" id="threadTimestamp"></p>
+            <p class="content" id="threadContent"> </p>
+        </div>
+
+        <!-- Comment Section (Comment Count, each with Author, Timestamp, and Content) -->
+        <div class="comment-section">
+            <h2 class="comment-count" id="commentCount"> Comments (0) </h2>
+            <!-- Unordered List displays each Comment -->
+            <ul id="commentList">
+                <!-- Comments will be dynamically added here -->
+            </ul>
+            <!-- "Add Comment" Function -->
+            <textarea id="newComment" placeholder="Add a comment"></textarea>
+            <button id="addCommentButton">Add Comment</button>
+        </div>
+    </div>
+
+    <!-- Database References -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="thread.js" type="module"></script>
+</body>
+</html>

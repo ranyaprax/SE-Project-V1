@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="forum.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <meta charset="UTF-8">
+    <title>Forum | Swift</title>
+
+     <!-- Favicon -->
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body style="margin: 10px 60px;">
+    <!-- Site Topbar -->
+    <header>
+        <a href="landingPage.html" class="logo">Swift</a>
+        <ul class = "navlist">
+            <li><a href = "personal.html">Timer/Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="signUp.html">Account</a>
+                <div class="content">
+                    <a href="settings.html">Account Details</a>
+                    <a href="login.html">Log out</a>
+                </div>
+            </li>
+        </ul>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+
+        <!-- This section allows users to create their own Threads. -->
+    </header>
+    <div class="firstSection top">
+        <h1 class="forumTitle">Learning Forum</h1>
+        <input id="newTitle" type="text" placeholder="Thread Title" />
+        <textarea id="newContent" placeholder="Type your new Thread here"></textarea>
+        <button id="addThreadButton">Add Thread</button>
+
+        <!-- Unordered List displays each Thread -->
+        <ul id="threadList">
+            <!-- Each Thread will be added here dynamically from forum.js -->
+        </ul>
+    </div>
+
+    <!-- Firebase and Firestore References -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
+        import { getFirestore, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
+        const firebaseApp = initializeApp(firebaseConfig);
+        const firestore = getFirestore(firebaseApp);
+    </script>
+
+    <!-- forum.js Reference -->
+    <script type="module" src="forum.js"></script>
+</body>
+</html>

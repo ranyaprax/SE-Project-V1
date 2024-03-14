@@ -1,0 +1,26 @@
+/* Additonal CSS for thread.html */
+
+#threadContent {
+    margin: 5px;
+    padding: 5px;
+    height: 100px;
+    width: 600px;
+}
+
+#commentCount {
+    color: white;
+}
+
+#addCommentButton {
+    margin: 5px;
+    padding: 5px;
+    width: 100%;
+}
+
+#newComment {
+    margin: 5px;
+    padding: 5px;
+    height: 100px;
+    width: 100%;
+    resize: none;
+}

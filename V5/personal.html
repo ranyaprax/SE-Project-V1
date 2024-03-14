@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Username | Swift</title>
+    <!-- char encoding standard -->
+    <meta charset = "utf-8">
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+    <meta name="description" content="Personal homepage with task manager and pomodoro timer">
+    <meta name=author content="Ashlyn Buckley">
+    <meta name=author content="Avalon Brathwaite">
+    
+    <!--Custom Css link-->
+    <link rel = "stylesheet" type = "text/css" href = "main.css">
+
+    <!--Boxicons link--> 
+    <link rel = "stylesheet"
+    href = "https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+
+    <!-- remixicons link--> 
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <!-- Font Link--> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Alert sound -->
+    <audio id="breakTimeAudio">
+        <source src="fart.mp3" type="audio/mp3">
+    </audio>
+
+     <!-- Favicon -->
+     <link rel="icon" href="favicon.ico" type="image/x-icon">
+     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+    <!-- JS Scripts -->
+    <script src="timer.js"></script>
+    <script src= "main.js"></script>
+    
+</head>
+<body>
+
+    <header>
+        <a href = "landing.html" class = "logo">Swift</a>
+        <ul class = "navlist">
+            <li><a href = "personal.html">Timer/Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="SignUp.html">Account</a>
+                <div class="content">
+                    <a href="settings.html">Account Details</a>
+                    <a href="login.html">Log out</a>
+                </div>
+            </li>
+        </ul>
+    
+        <div class="bx bx-menu" id = "menu-icon"></div> 
+
+    </header>
+    
+    <!-- Tasks Section-->
+    <div class ="tasks">
+        <div class = "tasksList">
+            <h2>Tasks- <img src="images/studyicon3.png"></h2>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Add your task">
+                <button onclick="addTask()">Add</button>
+            </div>
+            <ul id="tasksContainer">
+            </ul>
+        </div>
+    </div>
+
+     <!-- timer -->
+     <div id="timer" class="timerContainer">
+        <div class="time" >
+            <h3 id="hours">00</h3>
+            <h3>:</h3>
+        </div>
+        <div class="time">
+            <h3 id="minutes">00</h3>
+            <h3>:</h3>
+        </div>
+        <div class="time">
+            <h3 id="seconds">00</h3>
+        </div>
+    </div>
+
+    <!-- timer buttons -->
+    <div class="buttonContainer">
+        <button id="editBn" class="button" onclick="openModal()">EDIT</button>
+        <button id="starteBn" onclick="startTimer()">START</button>
+        <button id="pauseBn" onclick="stopTimer()">PAUSE</button>
+    </div>
+
+    <!-- modal -->
+    <div id="timerSettings" class="modal">
+        <div class="modalContent">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <!-- Add your input fields here -->
+        <label for="sessionLength">How long will each session be?<br></label>
+        <select id="sessionLength">
+            <option value="5">5min</option>
+            <option value="25">25min</option>
+            <option value="50">50min</option>
+            <option value="75">75min</option>
+            <option value="100">100min</option>
+            <option value="125">125min</option>
+            <option value="150">150min</option>
+        </select><br><br>
+        <label for="numSessions">How many sessions?<br></label>
+        <select id="numSessions">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+        </select><br><br>
+        <button onclick="loadTimer()">Let's Study!</button>
+        </div>
+    </div>
+
+
+
+
+
+
+
+<!-- Footer Section --> 
+<footer>
+    <div class="footerContainer">
+        <div class="sec aboutUs">
+            <h2>Discover the Swift Advantage!</h2>
+                <p> Immerse yourself in a space where innovation meets productivity, and join a community that thrives on efficiency and collaboration. 
+                    Experience the power of our intuitive timer, streamlined task manager, and vibrant forum, designed to elevate your study and work experience. 
+                    </p>
+                <ul class="sci">
+                    <li><a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+                </ul>
+        </div>
+        <div class ="sec quickLinks">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#">link 1</a></li>
+                <li><a href="#">link 2</a></li>
+                <li><a href="#">link 3</a></li>
+                <li><a href="#">link 4</a></li>
+                <li><a href="#">link 5</a></li>
+            </ul>
+        </div>
+        <div class="sec contact">
+            <h2>Contact Info</h2>
+            <ul class="info">
+                <li>
+                <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+                <span>363 ShadowHeart Street,<br>
+                    GaleCity, State, 12345, Azeroth</span>
+                </li>
+            
+            <li>
+                <span><i class="fa fa-phone-square" aria-hidden="true"></i></span>
+                 <p><a href="tel:1 234 567 8900">+1 234 567 890</a><br>
+                    <a href="tel:1 535 247 9726">+1 535 247 9726</a><br></p>
+                </li>
+
+            <li>
+                <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
+                <p><a href="placeholder: shadowHeart@slaymama.com">shadowHeart@slaymama.com</a></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<div class="copyrightText">
+    <p>&copy; 2024 Swift. All rights reserved. | Designed by Swift</p>
+</div>
+
+</body>
+</html>
