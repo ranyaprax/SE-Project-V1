@@ -38,3 +38,15 @@ function showTasks(){
     tasksContainer.innerHTML = localStorage.getItem("data");
 }
 showTasks();
+
+function loggedin(){
+    if(localStorage.getItem("SwiftUserSignedIn") === 'true'){
+        document.getElementById("temp").innerHTML = "Log Out";
+        document.getElementById("temp").href = "logOut.html";
+    }
+    else {
+        document.getElementById("temp").innerHTML = "Sign Up";
+        document.getElementById("temp").href = "signUp.html";
+    }
+}
+window.onload = loggedin;
