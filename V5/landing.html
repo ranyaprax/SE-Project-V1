@@ -43,7 +43,7 @@
             <li class="account-dropdown" id="account"><a>Account</a>
                 <div class="content">
                     <a href="settings.html" id="settings">Account Details</a>
-                    <a href="signUp.html" id="temp">Sign Up</a>
+                    <a href="signUp.html" id="temp" name="signUp" onClick="loggedOut()">Sign Up</a>
                 </div>
             </li>
         </ul>
@@ -51,7 +51,15 @@
         <div class="bx bx-menu" id = "menu-icon"></div> 
 
     </header>
-    
+    <section class="login" id="loggedOut">
+        <h2>
+            Are you sure you want to log out?
+        </h2>
+        <button id="yes">Log Out</button>
+        <button id="no">Cancel</button>
+
+    </section>
+    <div id="All">
     <section class = "firstSection">
         <div class="sectionOneText">
             <h4> Study with Style </h4>
@@ -208,6 +216,7 @@
     </footer>
     <div class="copyrightText">
         <p>&copy; 2024 Swift. All rights reserved. | Designed by Swift</p>
+    </div>
     </div>
 </body>
 <html>
