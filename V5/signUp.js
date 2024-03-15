@@ -67,7 +67,6 @@ function Back2(){
 }
 
 document.getElementById("signup").addEventListener('click', function(event) {
-    loggedin();
     
     // event.preventDefault();
     let firstName = document.getElementById("fname").value;
@@ -107,6 +106,7 @@ function signUp(firstName,lastName,email,password,userName,age){
         localStorage.setItem("SwiftUserSignedIn", true);
         document.getElementById("done").style = "display:block;";
         document.getElementById("Page3").style = "display:none;";
+        loggedIn();
     })
     .catch(error => {
         console.log('Error Signing in');
