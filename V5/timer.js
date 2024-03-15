@@ -99,3 +99,25 @@ function playAlert() {
   var audio = document.getElementById("breakTimeAudio");
   audio.play();
 }
+
+function loggedin(){
+    if(localStorage.getItem("SwiftUserSignedIn") === 'true'){
+        document.getElementById("temp").innerHTML = "Log Out";
+        document.getElementById("temp").href = "landing.html";
+        document.getElementById("temp").name = "logOut";
+        document.getElementById("home").innerHTML = localStorage.getItem("username")+" | Swift";
+        document.getElementById("timer").href = "personal.html";
+        document.getElementById("forum").href = "forum.html";
+        document.getElementById("settings").href = "settings.html";
+    }
+    else {
+        document.getElementById("temp").innerHTML = "Sign Up";
+        document.getElementById("temp").href = "signUp.html";
+        document.getElementById("temp").name = "signOut";
+        document.getElementById("home").innerHTML = "Home | Swift";
+        document.getElementById("timer").href = "signUp.html";
+        document.getElementById("forum").href = "signUp.html";
+        document.getElementById("settings").href = "signUp.html";
+    }
+}
+window.onload = loggedin;
