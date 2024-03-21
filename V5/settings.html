@@ -28,6 +28,42 @@
     display: flex;
    }
 
+   /* Settings page buttons */
+   .commitChangeButton {
+    display: inline-block; 
+    color: white; 
+    background: #a6dbbc; 
+    border: 1px solid transparent; 
+    padding: 12px 10px;
+    line-height: 1.4px;
+    font-size: 14px;
+    font-weight:500; 
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease; 
+    cursor: pointer;    
+   }
+
+   .accDeletionButton {
+    padding: 12px 10px;
+    width: 150px; 
+    height: 50px; 
+    font-size: 15px; 
+    background-color: #af3b3b;
+    border-radius: 30px;
+    border: 1px solid transparent; 
+    transition: all .55s ease;   
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+   }
+
+   .profilePicture {
+    border: 4px solid #2a632f; 
+    width: 150px;
+    border-radius: 50%; 
+   }
+
    /* Sidebar itself */
    .sidebar {
     position: fixed;
@@ -90,6 +126,9 @@
     background-position:center;
    }
 
+   .tab h3 {
+    padding-bottom: 40px;
+   }
    /* Actual content of each tab */
    .tabContent {
    display: none;
@@ -148,7 +187,7 @@
                 <h3>Edit Profile</h3>
 
                 <div>
-                <img src="images/placeholder.jpg" id="pfp" style="border: 4px solid #2a632f; margin-top: 70px; width: 100px ">
+                <img src="images/placeholder.jpg" id="pfp" class="profilePicture">
                 
                 <!-- first and last name input boxes -->
                 <form style="margin-top: 30px">
@@ -160,8 +199,8 @@
                 </form>
 
                 <!-- Discard and commit changes buttons - no code for this currently -->
-                <button>Discard Changes</button>
-                <button>Commit Changes</button>
+                <button class="commitChangeButton">Discard Changes</button>
+                <button class="commitChangeButton">Commit Changes</button>
                 </div>
 
             </div>
@@ -170,15 +209,17 @@
             <div id='account' class="tabContent">
                 <h3>Manage Account</h3>
                 <label for="userEmail" style="font-size: 20px;">Email</label><br>
-                <input type="email" id="userEmail"><br>
+                <input type="email" id="userEmail">
+                <button onclick="changeEmail()" class="commitChangeButton">Update</button><br>
 
                 <label for="password" style="font-size: 20px;">Password</label><br>
                 <input type="password" id="password">
-                <button onclick="changePassword()">Change</button><br>
+                <button onclick="changePassword()" class="commitChangeButton">Update</button><br>
 
                 <label for="dob" style="font-size: 20px;">Age</label><br>
-                <input type="date" id="dob"><br><br>
-                <button id="deleteButton" style="width: 150px; height: 50px; font-size: 15px; background-color: red; color: white;" onclick="attemptDeletion()">Delete Account</button>
+                <input type="date" id="dob">
+                <button onclick="changeAge()" class="commitChangeButton">Update</button><br><br>
+                <button id="deleteButton" class="accDeletionButton" onclick="attemptDeletion()">Delete Account</button>
 
                 
             </div>
