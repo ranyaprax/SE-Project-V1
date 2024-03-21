@@ -34,32 +34,24 @@
     
 </head>
 <body>
-
-     <header>
-        <a href = "landing.html" class = "logo" id="home">Swift</a>
+    <header>
+        <a href = "landing.html" class = "logo">
+            <img src="images/logo.png" class="logoImg">
+            Swift
+            </a>
         <ul class = "navlist">
-            <li><a href = "personal.html" id="timer">Timer/Tasks</a></li>
-            <li><a href = "forum.html" id="forum">Forum</a></li>
-            <li class="account-dropdown" id="account"><a>Account</a>
-                <div class="content">
-                    <a href="settings.html" id="settings">Account Details</a>
-                    <a href="signUp.html" id="temp" name="signUp" onClick="loggedOut()">Sign Up</a>
-                </div>
-            </li>
+            <li><a href = "personal.html">Timer/Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
         </ul>
-    
-        <div class="bx bx-menu" id = "menu-icon"></div> 
-
+        <div class="dropdown">
+            <button class="dropbtn">Account</button>
+            <div class="dropdown-content">
+              <a href="settings.html">Account Settings</a>
+              <a href="login.html">Log Out</a>
+            </div>
+          </div>
     </header>
-    <section class="login" id="loggedOut">
-        <h2>
-            Are you sure you want to log out?
-        </h2>
-        <button id="yes">Log Out</button>
-        <button id="no">Cancel</button>
-
-    </section>
-    <div id="All">
+    
     <section class = "firstSection">
         <div class="sectionOneText">
             <h4> Study with Style </h4>
@@ -184,11 +176,10 @@
             <div class ="sec quickLinks">
                 <h2>Quick Links</h2>
                 <ul>
-                    <li><a href="#">link 1</a></li>
-                    <li><a href="#">link 2</a></li>
-                    <li><a href="#">link 3</a></li>
-                    <li><a href="#">link 4</a></li>
-                    <li><a href="#">link 5</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=_xUn8kAZGOw"> Study Tips </a></li>
+                    <li><a href="https://www.youtube.com/watch?v=gyITyJgNyQ8"> How to Stay Foucused </a></li>
+                    <li><a href="https://www.youtube.com/watch?v=p60rN9JEapg"> Scientific Study Tips</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=TjPFZaMe2yw"> More tips for Study</a></li>
                 </ul>
             </div>
             <div class="sec contact">
@@ -196,8 +187,8 @@
                 <ul class="info">
                     <li>
                     <span><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                    <span>363 ShadowHeart Street,<br>
-                        GaleCity, State, 12345, Azeroth</span>
+                    <span>47 Clover Lane,<br>
+                        Dublin City, County Dublin, D12 AB34, Ireland</span>
                     </li>
                 
                 <li>
@@ -208,7 +199,7 @@
 
                 <li>
                     <span><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                    <p><a href="placeholder: shadowHeart@slaymama.com">shadowHeart@slaymama.com</a></p>
+                    <p><a href="swiftStudy@gmail.com">swiftStudy@gmail.com</a></p>
                     </li>
                 </ul>
             </div>
@@ -216,7 +207,6 @@
     </footer>
     <div class="copyrightText">
         <p>&copy; 2024 Swift. All rights reserved. | Designed by Swift</p>
-    </div>
     </div>
 </body>
 <html>
