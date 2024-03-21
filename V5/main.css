@@ -437,6 +437,22 @@ section{
     justify-content: center;
 }
 
+.timerButton {
+    display: inline-block; 
+    color: white; 
+    background: #a6dbbc; 
+    border: 1px solid transparent; 
+    padding: 12px 30px;
+    margin-bottom: 13px;
+    line-height: 1.4px;
+    font-size: 18px;
+    font-weight:500; 
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease; 
+    cursor: pointer;  
+}
+
 /*modal*/
 .modal {
     display: none;
@@ -450,9 +466,25 @@ section{
     z-index: 1;
     width: 60%; /* Adjust the width as needed */
     max-width: 600px; /* Set a maximum width if desired */
-    height: 170px;
+    height: 200px;
+    box-sizing: border-box;
+    padding: var(--gap);
   }
   
+  .modal button{
+    display: inline-block; 
+    color: white; 
+    background: #a6dbbc; 
+    border: 1px solid transparent; 
+    padding: 12px 30px;
+    line-height: 1.4px;
+    font-size: 14px;
+    font-weight:500; 
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all .55s ease; 
+    cursor: pointer;  
+  }
   .modalContent {
     max-width: 100%;
     font-size: 20px;
@@ -464,15 +496,6 @@ section{
     float: right;
     cursor: pointer;
   }
-
-  /* .timer {
-    font-size: 100px;
-    margin-top: 200px; 
-    text-align: center;
-    color: white;
-    display: flex;
-    justify-content: center;
-} */
 
 .time {
     display: flex;
@@ -653,11 +676,23 @@ footer p{
     color: #fff;
 }
 
+/* Personal homepage 2 columns */
+.column {
+    display: flex; /* Use flexbox to create columns */
+    justify-content: space-between; /* Space items evenly along the main axis */
+    max-width: 900px; /* Set a maximum width for the container */
+    margin-top: 40px;
+}
+
+.column > * {
+    width: 48%; /* Set the width of each column */
+}
 /* Tasks section*/
 .tasks{
     width: 100%;
     min-height: 100vh;
     padding: 10px;
+    margin-right: 70px;
 }
 .tasks .tasksList{
     width: 100%;
