@@ -45,7 +45,67 @@
             <div >
                 <label>Password </label>
                 <input type="text" id="password">
+                <span><ion-icon name="lock-closed-outline"></ion-icon></span><!--icon--><!DOCTYPE html>
+<html>
+
+<head>
+    <title>Log In | Swift</title>
+    <!-- char encoding standard -->
+    <meta charset = "utf-8"> 
+    <meta name = "viewport" content = "width = device-width, initial-scale = 1">
+    <meta name="description" content="log in forum">
+    <meta name = author content="Ranya Praxmarer">
+
+    <!-- CSS link -->
+    <link rel="stylesheet" href="main.css">
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <a href = "landing.html" class = "logo">
+            <img src="images/logo.png" class="logoImg">
+            Swift
+            </a>
+        <ul class = "navlist">
+            <li><a href = "personal.html">Timer/Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
+        </ul>
+        <div class="dropdown">
+            <button class="dropbtn">Account</button>
+            <div class="dropdown-content">
+              <a href="settings.html">Account Settings</a>
+              <a href="#">Log Out</a>
+            </div>
+          </div>
+    </header>
+
+<section class="login" id="loginPage" style="width:250px;">
+        <h2>Login</h2>
+            <div>
+                <label>Email &nbsp &nbsp &nbsp</label>
+                <input type="text" required id="email">
+                <span><ion-icon name="mail-outline"></ion-icon></span><!--icon-->
+                <div id="result"></div>
+            </div>
+            <div >
+                <label>Password </label>
+                <input type="text" id="password">
                 <span><ion-icon name="lock-closed-outline"></ion-icon></span><!--icon-->
+            </div>
+            <button type="button" id="login">Login</button>
+            
+            <p>Don't have an account? <a href="signUp.html">Sign up!</a></p>
+</section>
+
+</body>
+<!-- JS links -->
+<script src="main.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+</html>
             </div>
             <button type="button" id="login">Login</button>
             
