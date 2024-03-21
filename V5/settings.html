@@ -114,21 +114,21 @@
 <body>
     <!-- Static header that will remain at the top even if you scroll down -->
     <header>
-        <!-- margin-right controls the distance between the logo and the name / still need to push img closer to left -->
-         
-        <a href = "landing.html" class = "logo" id="home">Swift</a>
+        <a href = "landing.html" class = "logo">
+            <img src="images/logo.png" class="logoImg">
+            Swift
+            </a>
         <ul class = "navlist">
-            <li><a href = "personal.html" id="timer">Timer/Tasks</a></li>
-            <li><a href = "forum.html" id="forum">Forum</a></li>
-            <li class="account-dropdown" id="account"><a>Account</a>
-                <div class="content">
-                    <a href="settings.html" id="settings">Account Details</a>
-                    <a href="signUp.html" id="temp">Sign Up</a>
-                </div>
-            </li>
+            <li><a href = "personal.html">Timer/Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
         </ul>
-    
-
+        <div class="dropdown">
+            <button class="dropbtn">Account</button>
+            <div class="dropdown-content">
+              <a href="settings.html">Account Settings</a>
+              <a href="#">Log Out</a>
+            </div>
+          </div>
     </header>
 
     <!-- Sidebar -->
@@ -179,7 +179,11 @@
                 <label for="dob" style="font-size: 20px;">Age</label><br>
                 <input type="date" id="dob"><br><br>
                 <button id="deleteButton" style="width: 150px; height: 50px; font-size: 15px; background-color: red; color: white;" onclick="attemptDeletion()">Delete Account</button>
+
+                
             </div>
     </div>
+
+    
 </body>
 </html>
