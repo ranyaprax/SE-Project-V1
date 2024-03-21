@@ -59,41 +59,45 @@
           </div>
     </header>
     
-    <!-- Tasks Section-->
-    <div class ="tasks">
-        <div class = "tasksList">
-            <h2>Tasks- <img src="images/studyicon3.png"></h2>
-            <div class="row">
-                <input type="text" id="input-box" placeholder="Add your task">
-                <button onclick="addTask()">Add</button>
+
+    <!-- Column of timer and tasks -->
+    <div class="column">
+        <!-- Tasks Section-->
+        <div class ="tasks">
+            <div class = "tasksList">
+                <h2>Tasks- <img src="images/studyicon3.png"></h2>
+                <div class="row">
+                    <input type="text" id="input-box" placeholder="Add your task">
+                    <button onclick="addTask()">Add</button>
+                </div>
+                <ul id="tasksContainer">
+                
             </div>
-            <ul id="tasksContainer">
-            </ul>
+        </div>
+        <!-- timer -->
+        <ul>
+        <div id="timer" class="timerContainer">
+            <div class="time" >
+                <h3 id="hours">00</h3>
+                <h3>:</h3>
+            </div>
+            <div class="time">
+                <h3 id="minutes">00</h3>
+                <h3>:</h3>
+            </div>
+            <div class="time">
+                <h3 id="seconds">00</h3>
+            </div>
+        </div>
+
+        <!-- timer buttons -->
+        <div class="buttonContainer">
+            <button id="editBn" class="timerButton" onclick="openModal()">EDIT</button>
+            <button id="starteBn" class="timerButton" onclick="startTimer()">START</button>
+            <button id="pauseBn" class="timerButton" onclick="stopTimer()">PAUSE</button>
         </div>
     </div>
-
-     <!-- timer -->
-     <div id="timer" class="timerContainer">
-        <div class="time" >
-            <h3 id="hours">00</h3>
-            <h3>:</h3>
-        </div>
-        <div class="time">
-            <h3 id="minutes">00</h3>
-            <h3>:</h3>
-        </div>
-        <div class="time">
-            <h3 id="seconds">00</h3>
-        </div>
-    </div>
-
-    <!-- timer buttons -->
-    <div class="buttonContainer">
-        <button id="editBn" class="button" onclick="openModal()">EDIT</button>
-        <button id="starteBn" onclick="startTimer()">START</button>
-        <button id="pauseBn" onclick="stopTimer()">PAUSE</button>
-    </div>
-
+    
     <!-- modal -->
     <div id="timerSettings" class="modal">
         <div class="modalContent">
@@ -121,12 +125,6 @@
         <button onclick="loadTimer()">Let's Study!</button>
         </div>
     </div>
-
-
-
-
-
-
 
 <!-- Footer Section --> 
 <footer>
