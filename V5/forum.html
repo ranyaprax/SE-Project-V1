@@ -13,22 +13,21 @@
 <body style="margin: 10px 60px;">
     <!-- Site Topbar -->
     <header>
-        <a href = "landing.html" class = "logo" id="home">Swift</a>
+        <a href = "landing.html" class = "logo">
+            <img src="images/logo.png" class="logoImg">
+            Swift
+            </a>
         <ul class = "navlist">
-            <li><a href = "personal.html" id="timer">Timer/Tasks</a></li>
-            <li><a href = "forum.html" id="forum">Forum</a></li>
-            <li class="account-dropdown" id="account"><a>Account</a>
-                <div class="content">
-                    <a href="settings.html" id="settings">Account Details</a>
-                    <a href="signUp.html" id="temp">Sign Up</a>
-                </div>
-            </li>
+            <li><a href = "personal.html">Timer/Tasks</a></li>
+            <li><a href = "forum.html">Forum</a></li>
         </ul>
-    
-
-        <div class="bx bx-menu" id="menu-icon"></div>
-
-        <!-- This section allows users to create their own Threads. -->
+        <div class="dropdown">
+            <button class="dropbtn">Account</button>
+            <div class="dropdown-content">
+              <a href="settings.html">Account Settings</a>
+              <a href="#">Log Out</a>
+            </div>
+          </div>
     </header>
     <div class="firstSection top">
         <h1 class="forumTitle">Learning Forum</h1>
@@ -42,6 +41,7 @@
         </ul>
     </div>
 
+    
     <!-- Firebase and Firestore References -->
     <script type="module">
         import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
