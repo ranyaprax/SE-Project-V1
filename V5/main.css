@@ -1,6 +1,10 @@
 /* General Website CSS */
 *{
-    
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Cabin', sans-serif;
+    list-style: none;
     text-decoration: none;
 }
 header{
@@ -19,29 +23,32 @@ body{
     background: #295f48;
 }
 .logo{
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 700;
     color:#295f48;
-    padding-left:150px;
+    padding-left:10px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 .logoImg{
+    width: 85px;
+    padding-right: 20px;
     max-width: 5em;
     height: auto;
 }
 
-/* Navigation Bar */
-.navlist{
+ /* Navigation Bar */
+ .navlist{
     display: flex;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: 'Cabin', sans-serif;
-    list-style: none;
+    margin-left: auto; 
+    margin-right: 50px; 
+
 }
 
 .navlist a{
     color:  #295f48;
-    margin-left: 60px;
+    margin-left: 50px;
     font-size: 20px;
     font-weight: 600;
     border-bottom: 2px solid transparent;
@@ -50,20 +57,9 @@ body{
 
 .navlist a:hover{
     border-bottom: 2px solid #295f48;
-}
-
-#menu-icon{
-    color: white;
-    font-size: 40px; 
-    z-index: 10001; 
-    cursor: pointer;
-    display: none;
-}
+} 
 
 /* Section beneath Navigation Bar */
-
-
-
 .firstSection{
     height: 100%;
     width: 100%;
@@ -169,48 +165,53 @@ section{
     transform: translateY(-5px);
 }
 
-/* Account drop down section in Nav bar */
-.account-dropdown{
-    display: inline-block;
-}
-
-
-.account-dropdown button{
-    background-color: hsl(0,0%,80%);
-    color: white; 
+/* Style The Dropdown Button */
+.dropbtn {
+    color: #295f48;
     padding: 10px 15px;
+    font-size: 20px;
+    font-weight: 600;
     border: none;
     cursor: pointer;
-    
-}
+    background: none;
+  }
 
-.account-dropdown a{
-    display: block;
-    text-decoration: none;
-    padding: 5px 10px;
-    
-}
+  .dropdown {
+    position: relative;
+  }
 
-.account-dropdown .content{
+  /* Dropdown Content*/
+  .dropdown-content {
     display: none;
-    position:  absolute;
-    background-color: hsl(0,0%,95%);
-    min-width: 40px;
-    box-shadow: 2px 2px 5px hsla(0,0%,0%,0.8);
-    
-}
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    padding: 10px 0; /* Add padding to dropdown content */
+    border-radius: 5px; /* Add border radius for a rounded look */
+  }
 
-.account-dropdown:hover .content{
+  /* Links inside the dropdown */
+  .dropdown-content a {
+    color: black;
+    padding: 10px 20px;
+    text-decoration: none;
     display: block;
+  }
+
+  /* Change color of dropdown links on hover */
+  .dropdown-content a:hover {
+    background-color: #f1f1f1;
 }
 
-.account-dropdown:hover button{
-    background-color: hsl(0,0%,70%);
-}
+  /* Show the dropdown menu on hover */
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
 
-.account-dropdown a:hover{
-    background-color: hsl(0,0%,90%);
-}
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+  .dropdown:hover .dropbtn {
+    background-color: #a6dbbc;
+  } 
 
  /* Services section CSS */
  .background-section {
@@ -529,11 +530,6 @@ section{
 #done {
     display:none;
 } 
-/* added here */
-#loggedOut { 
-    display:none;
-}
-
 
 
 /* Footer Section */
