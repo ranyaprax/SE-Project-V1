@@ -1,36 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="thread.css">
-    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" type="text/css" href="thread.css" />
+    <link rel="stylesheet" href="SwiftStyle.css">
     <meta charset="UTF-8">
-    <title>Thread name | Swift</title>
-
-     <!-- Favicon -->
-     <link rel="icon" href="favicon.ico" type="image/x-icon">
-     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Swift</title>
 </head>
 <body>
     <header>
-        <a href = "landing.html" class = "logo">
-            <img src="images/logo.png" class="logoImg">
-            Swift
-            </a>
-        <ul class = "navlist">
-            <li><a href = "personal.html">Timer/Tasks</a></li>
-            <li><a href = "forum.html">Forum</a></li>
+        <a href="landingPage.html" class="logo">Swift</a>
+        <ul class="navlist">
+            <li><a href="timer.html">Timer</a></li>
+            <li><a href="#">Tasks</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="SignUp.html">Account</a>
+                <div class="content">
+                    <a href="SettingsPagev5.html">Account Details</a>
+                    <a href="#">Log out</a>
+                </div>
+            </li>
         </ul>
-        <div class="dropdown">
-            <button class="dropbtn">Account</button>
-            <div class="dropdown-content">
-              <a href="settings.html">Account Settings</a>
-              <a href="#">Log Out</a>
-            </div>
-          </div>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
+
     </header>
 
     <!-- Thread Content -->
-    <div class="firstSection top">
+    <div id="threadContent">
         <div class="content">
             <h1 class="title" id="threadTitle"> </h1>
             <p class="author" id="threadAuthor"></p>
