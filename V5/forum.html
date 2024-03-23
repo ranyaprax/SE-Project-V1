@@ -1,54 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="forum.css">
-    <link rel="stylesheet" type="text/css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="forum.css" />
+    <link rel="stylesheet" type="text/css" href="SwiftStyle.css" />
     <meta charset="UTF-8">
-    <title>Forum | Swift</title>
-
-     <!-- Favicon -->
-     <link rel="icon" href="favicon.ico" type="image/x-icon">
-     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Swift</title>
 </head>
 <body style="margin: 10px 60px;">
     <!-- Site Topbar -->
     <header>
-        <a href = "landing.html" class = "logo">
-            <img src="images/logo.png" class="logoImg">
-            Swift
-            </a>
-        <ul class = "navlist">
-            <li><a href = "personal.html">Timer/Tasks</a></li>
-            <li><a href = "forum.html">Forum</a></li>
+        <a href="landingPage.html" class="logo">Swift</a>
+        <ul class="navlist">
+            <li><a href="timer.html">Timer</a></li>
+            <li><a href="#">Tasks</a></li>
+            <li><a href="forum.html">Forum</a></li>
+            <li class="account-dropdown">
+                <a href="signUp.html">Account</a>
+                <div class="content">
+                    <a href="SettingsPagev5.html">Account Details</a>
+                    <a href="#">Log out</a>
+                </div>
+            </li>
         </ul>
-        <div class="dropdown">
-            <button class="dropbtn">Account</button>
-            <div class="dropdown-content">
-              <a href="settings.html">Account Settings</a>
-              <a href="#">Log Out</a>
-            </div>
-          </div>
+
+        <div class="bx bx-menu" id="menu-icon"></div>
     </header>
-    <div class="firstSection top">
-        <h1 class="forumTitle">Learning Forum</h1>
-        <input id="newTitle" type="text" placeholder="Thread Title" />
-        <textarea id="newContent" placeholder="Type your new Thread here"></textarea>
-        <button id="addThreadButton">Add Thread</button>
 
+    <!-- This section allows users to create their own Threads. -->
+    <ul id="createForum">
+        <li> <h1 class="forumTitle">Learning Forum</h1> </li>
+        <li> <input id="newTitle" type="text" placeholder="Thread Title" /> </li>
+        <li> <textarea id="newContent" placeholder="Type your new Thread here"></textarea> </li>
+        <li> <button id="addThreadButton">Add Thread</button> </li>
         <!-- Unordered List displays each Thread -->
-        <ul id="threadList">
-            <!-- Each Thread will be added here dynamically from forum.js -->
-        </ul>
-    </div>
-
-    
-    <!-- Firebase and Firestore References -->
-    <script type="module">
-        import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
-        import { getFirestore, serverTimestamp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
-        const firebaseApp = initializeApp(firebaseConfig);
-        const firestore = getFirestore(firebaseApp);
-    </script>
+        <li>
+            <ul id="threadList">
+                <!-- Each Thread will be added here dynamically from forum.js -->
+            </ul>
+        </li>
+    </ul>
 
     <!-- forum.js Reference -->
     <script type="module" src="forum.js"></script>
